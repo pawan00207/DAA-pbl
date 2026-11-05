@@ -1,0 +1,165 @@
+/**
+ * @file /src/data/sampleGraphs.ts
+ * @description Curated benchmark and realistic sample graphs for education and testing.
+ * B.Tech CSE Semester V - Design and Analysis of Algorithms (DAA)
+ */
+
+import { GraphData } from '../types/graph';
+
+export const SAMPLE_GRAPHS: GraphData[] = [
+  {
+    id: 'sample_delhi_transit',
+    name: 'Delhi NCR Transit Network',
+    description: 'Realistic urban road/metro network connecting major transportation hubs with distances in km.',
+    isDirected: false,
+    nodes: [
+      { id: 'CP', label: 'Connaught Pl.', x: 420, y: 250 },
+      { id: 'KG', label: 'Kashmere Gate', x: 420, y: 100 },
+      { id: 'HK', label: 'Hauz Khas', x: 420, y: 400 },
+      { id: 'NOI', label: 'Noida Sec 18', x: 650, y: 320 },
+      { id: 'GUR', label: 'Cyber City Gur.', x: 180, y: 430 },
+      { id: 'DEL', label: 'IGI Airport', x: 200, y: 280 },
+      { id: 'KB', label: 'Karol Bagh', x: 300, y: 170 },
+      { id: 'ANV', label: 'Anand Vihar', x: 640, y: 160 },
+    ],
+    edges: [
+      { id: 'e1', source: 'KG', target: 'KB', weight: 6 },
+      { id: 'e2', source: 'KG', target: 'CP', weight: 7 },
+      { id: 'e3', source: 'KG', target: 'ANV', weight: 9 },
+      { id: 'e4', source: 'KB', target: 'DEL', weight: 14 },
+      { id: 'e5', source: 'KB', target: 'CP', weight: 4 },
+      { id: 'e6', source: 'CP', target: 'HK', weight: 11 },
+      { id: 'e7', source: 'CP', target: 'NOI', weight: 15 },
+      { id: 'e8', source: 'ANV', target: 'NOI', weight: 12 },
+      { id: 'e9', source: 'DEL', target: 'GUR', weight: 10 },
+      { id: 'e10', source: 'DEL', target: 'HK', weight: 12 },
+      { id: 'e11', source: 'HK', target: 'GUR', weight: 16 },
+      { id: 'e12', source: 'HK', target: 'NOI', weight: 13 },
+    ],
+  },
+  {
+    id: 'sample_clrs_shortest_path',
+    name: 'CLRS Textbook Graph (Fig 24.6)',
+    description: 'The standard Introduction to Algorithms textbook graph for verifying Dijkstra and shortest paths.',
+    isDirected: true,
+    nodes: [
+      { id: 's', label: 's (Source)', x: 150, y: 240 },
+      { id: 't', label: 't', x: 340, y: 120 },
+      { id: 'x', label: 'x', x: 550, y: 120 },
+      { id: 'y', label: 'y', x: 340, y: 360 },
+      { id: 'z', label: 'z', x: 550, y: 360 },
+    ],
+    edges: [
+      { id: 'e_st', source: 's', target: 't', weight: 10, directed: true },
+      { id: 'e_sy', source: 's', target: 'y', weight: 5, directed: true },
+      { id: 'e_tx', source: 't', target: 'x', weight: 1, directed: true },
+      { id: 'e_ty', source: 't', target: 'y', weight: 2, directed: true },
+      { id: 'e_yt', source: 'y', target: 't', weight: 3, directed: true },
+      { id: 'e_yx', source: 'y', target: 'x', weight: 9, directed: true },
+      { id: 'e_yz', source: 'y', target: 'z', weight: 2, directed: true },
+      { id: 'e_xz', source: 'x', target: 'z', weight: 4, directed: true },
+      { id: 'e_zs', source: 'z', target: 's', weight: 7, directed: true },
+      { id: 'e_zx', source: 'z', target: 'x', weight: 6, directed: true },
+    ],
+  },
+  {
+    id: 'sample_disconnected_islands',
+    name: 'Disconnected Islands (Test MSForest & Unreachable)',
+    description: 'Two isolated sub-graphs. Designed to test Minimum Spanning Forest in Prim/Kruskal and unreachable targets in Dijkstra/BFS.',
+    isDirected: false,
+    nodes: [
+      // Island A
+      { id: 'A1', label: 'A1', x: 180, y: 150 },
+      { id: 'A2', label: 'A2', x: 340, y: 120 },
+      { id: 'A3', label: 'A3', x: 260, y: 270 },
+      // Island B
+      { id: 'B1', label: 'B1', x: 550, y: 180 },
+      { id: 'B2', label: 'B2', x: 720, y: 150 },
+      { id: 'B3', label: 'B3', x: 640, y: 320 },
+      { id: 'B4', label: 'B4', x: 760, y: 330 },
+    ],
+    edges: [
+      // Island A edges
+      { id: 'ea1', source: 'A1', target: 'A2', weight: 5 },
+      { id: 'ea2', source: 'A2', target: 'A3', weight: 8 },
+      { id: 'ea3', source: 'A3', target: 'A1', weight: 4 },
+      // Island B edges
+      { id: 'eb1', source: 'B1', target: 'B2', weight: 7 },
+      { id: 'eb2', source: 'B2', target: 'B3', weight: 3 },
+      { id: 'eb3', source: 'B3', target: 'B1', weight: 6 },
+      { id: 'eb4', source: 'B3', target: 'B4', weight: 2 },
+      { id: 'eb5', source: 'B2', target: 'B4', weight: 9 },
+    ],
+  },
+  {
+    id: 'sample_data_center_wan',
+    name: 'Data Center Mesh Backbone',
+    description: 'High-availability router mesh with link latencies in milliseconds.',
+    isDirected: false,
+    nodes: [
+      { id: 'R1', label: 'Core-Router-1', x: 250, y: 140 },
+      { id: 'R2', label: 'Core-Router-2', x: 550, y: 140 },
+      { id: 'D1', label: 'Dist-Switch-East', x: 680, y: 290 },
+      { id: 'D2', label: 'Dist-Switch-West', x: 120, y: 290 },
+      { id: 'S1', label: 'Server-Farm-A', x: 260, y: 420 },
+      { id: 'S2', label: 'Server-Farm-B', x: 540, y: 420 },
+    ],
+    edges: [
+      { id: 'ew1', source: 'R1', target: 'R2', weight: 2 },
+      { id: 'ew2', source: 'R1', target: 'D2', weight: 4 },
+      { id: 'ew3', source: 'R2', target: 'D1', weight: 3 },
+      { id: 'ew4', source: 'D2', target: 'S1', weight: 1 },
+      { id: 'ew5', source: 'D1', target: 'S2', weight: 1 },
+      { id: 'ew6', source: 'S1', target: 'S2', weight: 5 },
+      { id: 'ew7', source: 'R1', target: 'S1', weight: 8 },
+      { id: 'ew8', source: 'R2', target: 'S2', weight: 7 },
+      { id: 'ew9', source: 'D2', target: 'R2', weight: 9 },
+    ],
+  },
+  {
+    id: 'sample_complete_k5',
+    name: 'Complete Graph K5',
+    description: 'A 5-vertex complete graph where every pair of distinct vertices is connected by a unique edge.',
+    isDirected: false,
+    nodes: [
+      { id: 'N1', label: '1', x: 400, y: 90 },
+      { id: 'N2', label: '2', x: 610, y: 210 },
+      { id: 'N3', label: '3', x: 530, y: 420 },
+      { id: 'N4', label: '4', x: 270, y: 420 },
+      { id: 'N5', label: '5', x: 190, y: 210 },
+    ],
+    edges: [
+      { id: 'ek1', source: 'N1', target: 'N2', weight: 12 },
+      { id: 'ek2', source: 'N1', target: 'N3', weight: 25 },
+      { id: 'ek3', source: 'N1', target: 'N4', weight: 18 },
+      { id: 'ek4', source: 'N1', target: 'N5', weight: 30 },
+      { id: 'ek5', source: 'N2', target: 'N3', weight: 14 },
+      { id: 'ek6', source: 'N2', target: 'N4', weight: 22 },
+      { id: 'ek7', source: 'N2', target: 'N5', weight: 17 },
+      { id: 'ek8', source: 'N3', target: 'N4', weight: 10 },
+      { id: 'ek9', source: 'N3', target: 'N5', weight: 28 },
+      { id: 'ek10', source: 'N4', target: 'N5', weight: 15 },
+    ],
+  },
+  {
+    id: 'sample_negative_cycle',
+    name: 'Negative Weight & Cycle Network',
+    description: 'Directed network with negative edge weights and an arbitrage cycle to test Bellman-Ford cycle detection and Dijkstra error handling.',
+    isDirected: true,
+    nodes: [
+      { id: 'S', label: 'Source (S)', x: 180, y: 260 },
+      { id: 'A', label: 'A', x: 380, y: 140 },
+      { id: 'B', label: 'B', x: 580, y: 140 },
+      { id: 'C', label: 'C', x: 580, y: 380 },
+      { id: 'D', label: 'D', x: 380, y: 380 },
+    ],
+    edges: [
+      { id: 'en1', source: 'S', target: 'A', weight: 4, directed: true },
+      { id: 'en2', source: 'S', target: 'D', weight: 5, directed: true },
+      { id: 'en3', source: 'A', target: 'B', weight: 3, directed: true },
+      { id: 'en4', source: 'B', target: 'C', weight: -6, directed: true },
+      { id: 'en5', source: 'C', target: 'A', weight: 1, directed: true },
+      { id: 'en6', source: 'C', target: 'D', weight: 2, directed: true },
+    ],
+  },
+];

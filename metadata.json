@@ -1,0 +1,6 @@
+{
+  "name": "Smart Route Optimization System",
+  "description": "Design and Analysis of Algorithms (DAA) B.Tech CSE Semester V Project: Interactive graph algorithm visualizer, step-by-step pathfinding and MST tracing, complexity analyzer and comparison suite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
